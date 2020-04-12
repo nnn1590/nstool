@@ -175,3 +175,9 @@ deps:
 .PHONY: clean_deps
 clean_deps:
 	@$(foreach lib,$(PROJECT_DEPEND_LOCAL), cd "$(ROOT_PROJECT_DEPENDENCY_PATH)/lib$(lib)" && $(MAKE) clean && cd "$(PROJECT_PATH)";)
+
+.PHONY: install uninstall
+install:
+	@install -s $(PROJECT_BIN_PATH)/$(PROJECT_NAME) /usr/bin
+uninstall:
+	@$(RM) /usr/bin/$(PROJECT_NAME)
